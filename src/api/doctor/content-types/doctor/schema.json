@@ -4,7 +4,8 @@
   "info": {
     "singularName": "doctor",
     "pluralName": "doctors",
-    "displayName": "Doctor"
+    "displayName": "Doctor",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,7 +22,7 @@
       "type": "string"
     },
     "About": {
-      "type": "string"
+      "type": "text"
     },
     "Phone": {
       "type": "string"
@@ -30,19 +31,21 @@
       "type": "string"
     },
     "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
-    "category": {
+    "categories": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::category.category"
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "doctors"
     }
   }
 }

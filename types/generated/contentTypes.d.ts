@@ -807,6 +807,11 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'oneToOne',
       'api::doctor.doctor'
     >;
+    doctors: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::doctor.doctor'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -831,6 +836,7 @@ export interface ApiDoctorDoctor extends Schema.CollectionType {
     singularName: 'doctor';
     pluralName: 'doctors';
     displayName: 'Doctor';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -839,13 +845,13 @@ export interface ApiDoctorDoctor extends Schema.CollectionType {
     Name: Attribute.String;
     Address: Attribute.Text;
     Patients: Attribute.String;
-    About: Attribute.String;
+    About: Attribute.Text;
     Phone: Attribute.String;
     Year_of_Experience: Attribute.String;
     Image: Attribute.Media;
-    category: Attribute.Relation<
+    categories: Attribute.Relation<
       'api::doctor.doctor',
-      'oneToOne',
+      'manyToMany',
       'api::category.category'
     >;
     createdAt: Attribute.DateTime;

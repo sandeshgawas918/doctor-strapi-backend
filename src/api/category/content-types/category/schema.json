@@ -30,6 +30,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::doctor.doctor"
+    },
+    "doctors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::doctor.doctor",
+      "mappedBy": "categories"
     }
   }
 }
